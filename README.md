@@ -3,7 +3,7 @@ These instructions walk through setting up TKGI Kubernetes clusters for Windows 
 
 ## Setup and Installation
 - Install and configure TKGI 1.6+ in OpsManager 2.6+ with Flannel CNI networking
-  (Note: NSX-T 3.0.1 and NCP 3.0.0 are in beta support starting in 1.8)
+  (Note: NSX-T 3.0.0 and NCP 3.0.1 are in beta support starting in 1.8)
 - Configure Plans 11+ for Windows Kubernetes clusters
   - Name (example: small.windows, large.windows)
   - Description
