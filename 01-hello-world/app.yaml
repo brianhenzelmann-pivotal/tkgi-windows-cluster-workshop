@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-world
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+      name: hello-world
+    spec:
+      containers:
+      - name: webapp
+        image: harbor.homelab.brianhenzelmann.com/windows/hello-world:1.0.0
+        env:
+          - name: PORT
+            value: "80"
+        ports:
+        - containerPort: 80
+      tolerations:
+      - key: windows
+        value: "2019"
+        effect: NoSchedule
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world-svc
+spec:
+  selector:
+    app: hello-world
+  type: NodePort
+  ports:
+  - name: http
+    port:  80
+    targetPort:  80

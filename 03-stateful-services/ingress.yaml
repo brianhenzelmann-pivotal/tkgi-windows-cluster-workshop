@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubeapps-ingress
+  namespace: kubeapps
+spec:
+  rules:
+  - host: kubeapps.windows-cluster.homelab.brianhenzelmann.com
+    http:
+      paths:
+      - backend:
+          serviceName: kubeapps
+          servicePort: 80

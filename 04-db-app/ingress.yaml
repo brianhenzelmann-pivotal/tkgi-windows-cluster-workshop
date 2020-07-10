@@ -1,0 +1,13 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: db-app-ingress
+spec:
+  rules:
+  - host: db-app.windows-cluster.homelab.brianhenzelmann.com
+    http:
+      paths:
+      - backend:
+          serviceName: db-app-svc
+          servicePort: 80

@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+spec:
+  rules:
+  - host: helloworld.windows-cluster.homelab.brianhenzelmann.com
+    http:
+      paths:
+      - backend:
+          serviceName: hello-world-svc
+          servicePort: 80

@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app:  db-app
+  name:  db-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-app
+  template:
+    metadata:
+      labels:
+        app:  db-app
+      name:  db-app
+    spec:
+      containers:
+      - name: webapp
+        image: harbor.homelab.brianhenzelmann.com/windows/odbc:1.0.1
+        ports:
+        - containerPort: 80
+      tolerations:
+      - key: windows
+        value: "2019"
+        effect: NoSchedule
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db-app-svc
+spec:
+  selector:
+    app: db-app
+  type: NodePort
+  ports:
+  - name: http
+    port:  80
+    targetPort:  80
+
