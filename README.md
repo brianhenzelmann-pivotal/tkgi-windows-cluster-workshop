@@ -277,7 +277,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 This will create the necessary resources to implement services of type LoadBalancer except for your specific configuration. You will need to create a configmap to specify the IP ranges to use.
 
 Create the following `metallb-config.yaml` file updating the addresses based on the network you are using:
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
