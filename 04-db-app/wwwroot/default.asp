@@ -5,7 +5,7 @@
   <%
   Dim objConn
   Set objConn = Server.CreateObject("ADODB.Connection")
-  objConn.Open("DSN=tkgitest;UID=sa;PWD=password")
+  objConn.Open("DSN=tkgitest;UID=sa;PWD=ComplexP@55word")
 
   Set objCmd = Server.CreateObject("ADODB.Command")
   objCmd.CommandText = "SELECT * FROM master.sys.tables"

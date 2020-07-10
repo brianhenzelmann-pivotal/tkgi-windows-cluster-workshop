@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: harbor.homelab.brianhenzelmann.com/windows/odbc:1.0.1
+        image: harbor.homelab.brianhenzelmann.com/windows/odbc:1.0.2
         ports:
         - containerPort: 80
       tolerations:
